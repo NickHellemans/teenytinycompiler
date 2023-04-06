@@ -50,7 +50,7 @@ class Lexer
 {
 public:
     //Constructor
-    Lexer(const std::string& input);
+    explicit Lexer(const std::string& input);
 
     //Process the next character.
     void nextChar();

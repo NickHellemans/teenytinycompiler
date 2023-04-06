@@ -138,8 +138,9 @@ Token Lexer::getToken()
             token.kind = TokenKind::NEWLINE;
             break;
         case '\0':
+            token.text = "End reached";
             token.kind = TokenKind::EndOfFile;
-            break;
+            return token;
         default:
             if(isdigit(currChar))
             {
@@ -167,7 +168,7 @@ Token Lexer::getToken()
                 while(isalnum(peek()))
                     nextChar();
                 
-                token.kind = getTokenKind(token.text);
+                token.kind = getTokenKind(source.substr(beginPos, currPos-beginPos+1));
             }
             else
             {
