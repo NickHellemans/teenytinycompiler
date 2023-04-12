@@ -1,5 +1,7 @@
 #include <fstream>
 #include <iostream>
+
+#include "Emitter.h"
 #include "Lexer.h"
 #include "Parser.h"
 
@@ -22,10 +24,13 @@ int main(int argc, char* argv[])
     }
 
     Lexer lexer(input);
-    Parser parser(lexer);
+    Emitter emitter("src/out.c");
+    Parser parser(lexer, emitter);
 
     parser.program();
-    std::cout << "Parsing complete!\n";
+    emitter.writeFile();
+
+    std::cout << "Compiling complete!\n";
     //Token token = lexer.getToken();
     // while (token.kind != TokenKind::EndOfFile && token.kind != TokenKind::BadToken)
     // {

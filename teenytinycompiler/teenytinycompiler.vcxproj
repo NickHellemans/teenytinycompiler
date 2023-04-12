@@ -154,6 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Emitter.cpp" />
     <ClCompile Include="src\Lexer.cpp" />
     <ClCompile Include="src\Parser.cpp" />
     <ClCompile Include="src\teenytinycompiler.cpp">
@@ -231,6 +232,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Emitter.h" />
     <ClInclude Include="src\Lexer.h" />
     <ClInclude Include="src\Parser.h" />
   </ItemGroup>

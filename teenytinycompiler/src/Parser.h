@@ -1,13 +1,13 @@
 ﻿#pragma once
 #include <set>
 #include <string>
-
+#include "Emitter.h"
 #include "Lexer.h"
 
 class Parser
 {
 public:
-    explicit Parser(Lexer& lexer);
+    explicit Parser(Lexer& lexer, Emitter& emitter);
     
     //Return true if the current token matches.
     bool checkToken(TokenKind kind) const;
@@ -38,6 +38,7 @@ public:
     
 private:
     Lexer* lexer;
+    Emitter* emitter;
     Token curToken{"Invalid", TokenKind::BadToken};
     Token peekToken{"Invalid", TokenKind::BadToken};
 
